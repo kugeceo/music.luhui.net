@@ -1,0 +1,80 @@
+<div ng-class="{&quot;ng-cloak&quot;: showingLaunchpadInstructions, active: showingInfo &amp;&amp; !wizard.active}" class="info-panel">
+  <div class="content">
+    <section>
+      <h2>About</h2>
+      <p>Make your own mix with samples<br/>from Madeon's debut album Adventure.</p>
+    </section>
+    <section ng-click="showLaunchpadInstructions()" style="pointer-events:auto;display:block;background:transparent;cursor:pointer;">
+      <h2 style="font-size:1.4em">Tip, Got a Launchpad?</h2>
+    </section>
+  </div>
+</div>
+<div ng-class="{active: showingLaunchpadInstructions &amp;&amp; !wizard.active}" class="info-panel launchpad-info">
+  <div ng-click="showingLaunchpadInstructions = false" class="close"><span class="icon">&#xf00d;</span></div>
+  <div class="content">
+    <h2>Connect<br/>your<br/>launchpad</h2>
+    <div onclick="window.installMIDI()" class="step step-1 action">
+      <div class="deshift">
+        <h3>01</h3>
+        <p ng-if="chrome" class="chrome">Turn on<br/>Web MIDI API</p>
+        <p ng-if="!chrome" class="not-chrome">Install the <br/>jazz plugin</p>
+      </div>
+    </div>
+    <div class="step step-2">
+      <div class="deshift">
+        <h3>02</h3>
+        <p>Plugin your<br/>launchpad</p>
+      </div>
+    </div>
+    <div class="step step-3">
+      <div class="deshift">
+        <h3>03</h3>
+        <p>Restart your<br/>browser</p>
+      </div>
+    </div>
+    <div class="step step-4">
+      <div class="deshift">
+        <h3>04</h3>
+        <p>Revisit this<br/>page</p>
+      </div>
+    </div>
+    <div class="step step-5">
+      <div class="deshift">
+        <h3>05</h3>
+        <p>Make<br/>Your Mix</p>
+      </div>
+    </div>
+  </div>
+  <p onclick="window.launchpadNotWorking()" class="stillNotWorking"><span>Still not working?</span></p>
+</div>
+<div class="chevrons">
+  <chevron right="false" top="game.getChevronHeight(true)" bottom="game.getChevronHeight(false)"></chevron>
+  <chevron right="true" top="game.getChevronHeight(true)" bottom="game.getChevronHeight(false)"></chevron>
+</div>
+<div ng-class="{&quot;ng-cloak&quot;: (showingLaunchpadInstructions || showingInfo) &amp;&amp; !wizard.active}" class="buttons">
+  <div ng-class="{active: startOnTap}" ng-click="startTap()" class="start-on-tap">
+    <div>Tap to begin</div>
+  </div>
+  <div ng-class="{active: loading || waitingOnAnimation}" class="loading-screen">
+    <div class="loader-animation">
+      <div class="flipper">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="flipper">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="flipper">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="flipper">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+    </div>
+    <h2>Loading<br/>samples<br/><span>please wait</span></h2>
+  </div>
+  <madeon-button ng-cloak="ng-cloak" ng-repeat="button in game.buttons" class="madeon-button"></madeon-button>
+</div>

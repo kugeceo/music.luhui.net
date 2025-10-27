@@ -1,0 +1,18 @@
+
+
+<div ng-if="launchpad.isValid()" class="launchpad-connected">Launchpad detected, you can use it to make your own mix.</div>
+<div class="alerts">
+  <div ng-repeat="alert in alerts" class="alert"></div>
+  <h2>{{alert}}</h2>
+</div>
+<div ng-if="Alert.prompts !== false" class="prompt">
+  <div class="bg"></div>
+  <div class="modal">
+    <div ng-click="Alert.prompts = false" class="close"><span class="icon">&#xf00d;</span></div>
+    <h2>{{Alert.prompts.title}}</h2>
+    <p ng-bind-html="Alert.prompts.str"></p>
+    <div ng-if="Alert.prompts.input">
+      <input type="url" value="{{Alert.prompts.input}}"/>
+    </div>
+  </div>
+</div>
